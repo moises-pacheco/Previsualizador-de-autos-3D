@@ -13,25 +13,33 @@ export class Auto {
     private r_i_a: THREE.Group;
     private r_d_a: THREE.Group;
 
+    private auto_ruta: string;
+    private rueda_trasera_posicion: number;
+
+
     private angulo: number;
 
-    constructor(scene: THREE.Scene) {
+    constructor(scene: THREE.Scene, auto_ruta: string, rueda_izquierda_ruta:string, rueda_derecha_ruta:string, rueda_trasera_posicion: number) {
         this.angulo = 0;
         this.scene = scene;
         this.loader = new GLTFLoader();
         this.auto = new THREE.Group();
         this.scene.add(this.auto);
+        this.rueda_trasera_posicion = rueda_trasera_posicion;
+        
+        this.auto_ruta = auto_ruta;
 
-        this.r_i_d = this.crear_rueda('/modelos/rueda_izquierda.glb', false);
-        this.r_d_d = this.crear_rueda('modelos/rueda_derecha.glb',false);
-        this.r_i_a = this.crear_rueda('modelos/rueda_izquierda.glb',true);
-        this.r_d_a = this.crear_rueda('modelos/rueda_derecha.glb',true);
+
+        this.r_i_d = this.crear_rueda(rueda_izquierda_ruta, false);
+        this.r_d_d = this.crear_rueda(rueda_derecha_ruta,false);
+        this.r_i_a = this.crear_rueda(rueda_izquierda_ruta,true);
+        this.r_d_a = this.crear_rueda(rueda_derecha_ruta,true);
         
     }
 
 
     crear_animacion(){
-        const rueda_rapidez = -.94;
+        const rueda_rapidez = .94;
         this.r_i_d.rotation.z += rueda_rapidez;
         this.r_d_d.rotation.z += rueda_rapidez;
         this.r_i_a.rotation.z += rueda_rapidez;
@@ -48,7 +56,7 @@ export class Auto {
 
 
     crear_auto() {
-        this.loader.load('/modelos/auto.glb', (gltf) => {
+        this.loader.load(this.auto_ruta, (gltf) => {
             this.auto.add(gltf.scene);
         }, undefined, (error) => {
             console.log(`No se ha podido cargar el modelo correctamente: ${error}`)
@@ -59,7 +67,7 @@ export class Auto {
         const pivote = new THREE.Group();
         this.loader.load(ruta, (gltf) => {
             if(rueda_atras){
-                gltf.scene.position.x = -7.72;
+                gltf.scene.position.x = this.rueda_trasera_posicion;
             }
             const dimensiones_rueda = new THREE.Box3().setFromObject(gltf.scene);
             const centro_rueda = new THREE.Vector3();
@@ -70,6 +78,10 @@ export class Auto {
             this.auto.add(pivote);
         })
         return pivote; 
+    }
+
+    delete(){
+        this.scene.remove(this.auto);
     }
 
     getAuto(){

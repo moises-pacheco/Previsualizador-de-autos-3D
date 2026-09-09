@@ -7,6 +7,7 @@ import { Poste } from './poste_de_luz.js';
 import { Luna } from './luna.js';
 import { Carretera } from './carretera.js';
 import { I_Auto } from './iluminacion/iluminacion_auto.js';
+import './menu.js';
 
 
 
@@ -41,16 +42,16 @@ scene.backgroundIntensity = .2;
 
 //Modelos
 //AUTOS
-const malibu = new Auto(scene,'/modelos/malibu.glb', '/modelos/rueda_izquierda.glb','/modelos/rueda_derecha.glb', -7.72);
+export const malibu = new Auto(scene,'/modelos/malibu.glb', '/modelos/rueda_izquierda.glb','/modelos/rueda_derecha.glb', -7.72);
 malibu.posicionar();
 
 Auto.eliminarAuto(malibu.getAuto());
 
-const jeep = new Auto(scene, '/modelos/Jeep/jeep.glb', '/modelos/Jeep/jeep_rueda_izquierda.glb', '/modelos/Jeep/jeep_rueda_derecha.glb', -7.2);
+export const jeep = new Auto(scene, '/modelos/Jeep/jeep.glb', '/modelos/Jeep/jeep_rueda_izquierda.glb', '/modelos/Jeep/jeep_rueda_derecha.glb', -7.2);
 jeep.posicionar();
 Auto.eliminarAuto(jeep.getAuto());
 
-const fiat = new Auto(scene,'/modelos/fiat/fiat.glb', '/modelos/fiat/rueda_izquierda.glb', '/modelos/fiat/rueda_derecha.glb', -6);
+export const fiat = new Auto(scene,'/modelos/fiat/fiat.glb', '/modelos/fiat/rueda_izquierda.glb', '/modelos/fiat/rueda_derecha.glb', -6);
 fiat.posicionar();
 
 const montana = new Montana(scene);

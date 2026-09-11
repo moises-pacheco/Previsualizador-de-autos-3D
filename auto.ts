@@ -13,19 +13,22 @@ export class Auto {
     private r_i_a: THREE.Group;
     private r_d_a: THREE.Group;
 
+    private nombre_auto: string;
+
     private auto_ruta: string;
     private rueda_trasera_posicion: number;
 
 
     private angulo: number;
 
-    constructor(scene: THREE.Scene, auto_ruta: string, rueda_izquierda_ruta:string, rueda_derecha_ruta:string, rueda_trasera_posicion: number) {
+    constructor(scene: THREE.Scene, auto_ruta: string, rueda_izquierda_ruta:string, rueda_derecha_ruta:string, rueda_trasera_posicion: number, nombre_auto: string) {
         this.angulo = 0;
         this.scene = scene;
         this.loader = new GLTFLoader();
         this.auto = new THREE.Group();
         this.scene.add(this.auto);
         this.rueda_trasera_posicion = rueda_trasera_posicion;
+        this.nombre_auto = nombre_auto;
         
         this.auto_ruta = auto_ruta;
 
@@ -80,8 +83,8 @@ export class Auto {
         return pivote; 
     }
 
-    static eliminarAuto(auto: THREE.Group){
-        auto.traverse((obj) => {
+    eliminarAuto(){
+        this.auto.traverse((obj) => {
             if(obj instanceof THREE.Mesh){
                 obj.geometry.dispose();
 
@@ -93,7 +96,11 @@ export class Auto {
             }
         })
 
-        auto.removeFromParent();
+        this.auto.removeFromParent();
+    }
+
+    getNombreAuto(){
+        return this.nombre_auto;
     }
 
     getAuto(){

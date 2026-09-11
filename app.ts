@@ -42,18 +42,16 @@ scene.backgroundIntensity = .2;
 
 //Modelos
 //AUTOS
-export const malibu = new Auto(scene,'/modelos/malibu.glb', '/modelos/rueda_izquierda.glb','/modelos/rueda_derecha.glb', -7.72);
+export const malibu = new Auto(scene,'/modelos/malibu.glb', '/modelos/rueda_izquierda.glb','/modelos/rueda_derecha.glb', -7.72, 'Malibu');
 malibu.posicionar();
 
-Auto.eliminarAuto(malibu.getAuto());
 
-export const jeep = new Auto(scene, '/modelos/Jeep/jeep.glb', '/modelos/Jeep/jeep_rueda_izquierda.glb', '/modelos/Jeep/jeep_rueda_derecha.glb', -7.2);
+export const jeep = new Auto(scene, '/modelos/Jeep/jeep.glb', '/modelos/Jeep/jeep_rueda_izquierda.glb', '/modelos/Jeep/jeep_rueda_derecha.glb', -7.2, 'Jeep');
 jeep.posicionar();
 // Auto.eliminarAuto(jeep.getAuto());
 
-export const fiat = new Auto(scene,'/modelos/fiat/fiat.glb', '/modelos/fiat/rueda_izquierda.glb', '/modelos/fiat/rueda_derecha.glb', -6);
+export const fiat = new Auto(scene,'/modelos/fiat/fiat.glb', '/modelos/fiat/rueda_izquierda.glb', '/modelos/fiat/rueda_derecha.glb', -6, 'Fiat');
 fiat.posicionar();
-Auto.eliminarAuto(fiat.getAuto());
 
 const montana = new Montana(scene);
 montana.crear();

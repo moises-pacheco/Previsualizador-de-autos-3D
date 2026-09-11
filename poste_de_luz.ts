@@ -32,7 +32,7 @@ export class Poste{
             this.poste.position.x = 20;
         }
         this.poste.position.x += velocidad_poste;
-        console.log(this.poste.position.x)
+        // console.log(this.poste.position.x)
     }
 
     getPoste(){

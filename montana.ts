@@ -34,6 +34,6 @@ export class Montana {
       this.montana.position.x = 20;
     }
     this.montana.position.x += velocidad_poste;
-    console.log(this.montana.position.x);
+    // console.log(this.montana.position.x);
   }
 }

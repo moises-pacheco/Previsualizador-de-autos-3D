@@ -100,6 +100,10 @@ export class Auto {
         return this.auto;
     }
 
+    agregarAuto(){
+        this.scene.add(this.auto);
+    }
+
 
 
 

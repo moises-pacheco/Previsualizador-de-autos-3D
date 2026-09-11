@@ -49,10 +49,11 @@ Auto.eliminarAuto(malibu.getAuto());
 
 export const jeep = new Auto(scene, '/modelos/Jeep/jeep.glb', '/modelos/Jeep/jeep_rueda_izquierda.glb', '/modelos/Jeep/jeep_rueda_derecha.glb', -7.2);
 jeep.posicionar();
-Auto.eliminarAuto(jeep.getAuto());
+// Auto.eliminarAuto(jeep.getAuto());
 
 export const fiat = new Auto(scene,'/modelos/fiat/fiat.glb', '/modelos/fiat/rueda_izquierda.glb', '/modelos/fiat/rueda_derecha.glb', -6);
 fiat.posicionar();
+Auto.eliminarAuto(fiat.getAuto());
 
 const montana = new Montana(scene);
 montana.crear();
@@ -99,7 +100,7 @@ function animate(){
     jeep.crear_animacion();
     fiat.crear_animacion();
     
-    console.log(`X: ${camera.position.x}, Y: ${camera.position.y}, Z: ${camera.position.z}`)
+    // console.log(`X: ${camera.position.x}, Y: ${camera.position.y}, Z: ${camera.position.z}`)
 
     poste_de_luz.crear_animacion();
     montana.crear_animacion();

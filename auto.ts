@@ -110,8 +110,4 @@ export class Auto {
     agregarAuto(){
         this.scene.add(this.auto);
     }
-
-
-
-
 }

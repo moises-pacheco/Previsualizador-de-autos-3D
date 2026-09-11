@@ -48,10 +48,11 @@ malibu.posicionar();
 
 export const jeep = new Auto(scene, '/modelos/Jeep/jeep.glb', '/modelos/Jeep/jeep_rueda_izquierda.glb', '/modelos/Jeep/jeep_rueda_derecha.glb', -7.2, 'Jeep');
 jeep.posicionar();
-// Auto.eliminarAuto(jeep.getAuto());
+jeep.eliminarAuto();
 
 export const fiat = new Auto(scene,'/modelos/fiat/fiat.glb', '/modelos/fiat/rueda_izquierda.glb', '/modelos/fiat/rueda_derecha.glb', -6, 'Fiat');
 fiat.posicionar();
+fiat.eliminarAuto();
 
 const montana = new Montana(scene);
 montana.crear();

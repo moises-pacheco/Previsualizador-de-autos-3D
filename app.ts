@@ -8,13 +8,11 @@ import { Luna } from './luna.js';
 import { Carretera } from './carretera.js';
 import { I_Auto } from './iluminacion/iluminacion_auto.js';
 import './menu.js';
+import { estado_camara } from './menu.js';
 
 
 
 
-const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 4000);
-camera.position.set(17.47,-1.09,10.06);
-camera.rotation.y = .9;
 
 const scene = new THREE.Scene();
 
@@ -23,7 +21,7 @@ renderer.setSize(window.innerWidth,window.innerHeight);
 document.body.appendChild(renderer.domElement);
 renderer.shadowMap.enabled = true;
 
-const controls = new OrbitControls(camera, renderer.domElement);
+// const controls = new OrbitControls(estado_camara.camaraActiva, renderer.domElement);
 
 //HDR
 const hdr_loader = new HDRLoader();
@@ -38,6 +36,9 @@ estrellas.mapping = THREE.EquirectangularRefractionMapping;
 estrellas.colorSpace = THREE.SRGBColorSpace;
 scene.background = estrellas;
 scene.backgroundIntensity = .2;
+
+
+
 
 
 //Modelos
@@ -82,8 +83,8 @@ function onResize() {
   const w = window.innerWidth;
   const h = window.innerHeight;
 
-  camera.aspect = w / h;
-  camera.updateProjectionMatrix(); 
+  estado_camara.camaraActiva.aspect = w / h;
+  estado_camara.camaraActiva.updateProjectionMatrix(); 
 
   renderer.setSize(w, h);
   renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
@@ -91,15 +92,16 @@ function onResize() {
 
 window.addEventListener('resize', onResize);
 
+
 function animate(){
     carretera.carretera_material.uniforms.time!.value = clock.getElapsedTime();
-    renderer.render(scene, camera);
+    renderer.render(scene, estado_camara.camaraActiva);
     requestAnimationFrame(animate);
     malibu.crear_animacion();
     jeep.crear_animacion();
     fiat.crear_animacion();
     
-    // console.log(`X: ${camera.position.x}, Y: ${camera.position.y}, Z: ${camera.position.z}`)
+    console.log(`X: ${estado_camara.camaraActiva.position.x}, Y: ${estado_camara.camaraActiva.position.y}, Z: ${estado_camara.camaraActiva.position.z}`)
 
     poste_de_luz.crear_animacion();
     montana.crear_animacion();

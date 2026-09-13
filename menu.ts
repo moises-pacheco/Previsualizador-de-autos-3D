@@ -101,10 +101,15 @@ const pausar_cancion:HTMLButtonElement = document.querySelector('#pausar_cancion
 const siguiente_cancion: HTMLBRElement = document.querySelector('#siguiente_cancion')!;
 const cancion_input: HTMLAudioElement = document.querySelector('#cancion_input')!;
 const img_cancion: HTMLImageElement = document.querySelector('#img_cancion')!;
+const nombre_cancion: HTMLElement = document.querySelector('#nombre_cancion')!;
+const nombre_artista: HTMLElement = document.querySelector('#nombre_artista')!;
 
 empezar_cancion.addEventListener('click', () => {
     const cancion = radio.generarMusicaAleatorio();
     cancion_input.src = cancion!.getUrl();
     img_cancion.src = cancion!.getImg();
+    nombre_cancion.textContent = `${cancion?.getNombreCancion()}`
+    nombre_artista.textContent = `${cancion?.getArtista()}`
+
     cancion_input.play();
 })

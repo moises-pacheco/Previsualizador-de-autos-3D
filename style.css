@@ -10,6 +10,12 @@ ul{
     --fondo-letras-hover: rgba(40, 40, 40, 0.6);
 }
 
+.radio{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .menu {
     position: absolute;
     top: 52px;
@@ -63,3 +69,16 @@ ul{
     border-radius: .2em;
 }
 
+/* Radio */
+
+img{
+    width: 12em;
+    padding: .8em;
+}
+
+.radio{
+    color: white;
+    position: absolute;
+    top: 70%;
+    background-color: var(--fondo-letras);
+}

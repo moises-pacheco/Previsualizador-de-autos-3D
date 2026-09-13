@@ -2,6 +2,7 @@ import { Auto } from "./auto.js";
 import { fiat, malibu, jeep } from "./app.js";
 import * as THREE from 'three';
 
+//SELECCIÓN DE AUTOS
 
 const v_malibu: HTMLLIElement = document.querySelector('#v_malibu')!;
 const v_jeep: HTMLLIElement = document.querySelector('#v_jeep')!;
@@ -27,13 +28,14 @@ v_fiat.addEventListener('click', () => {
 function seleccionarAuto(nombre_auto:string){
     getAutos().forEach(auto => {
         if(nombre_auto !== auto.getNombreAuto()){
-            console.log('hola xd');
             auto.eliminarAuto();
         }else{
             auto.agregarAuto();
         }
     })
 }
+
+//SELECCIÓN DE CÁMARAS
 
 export const estado_camara = {
     camaraActiva: new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000),
@@ -75,3 +77,8 @@ s_camara_3.addEventListener('click', () => {
     camera3.position.set(-8,-1.09,1);
     camera3.rotation.y = 4;
 })
+
+//SELECCIÓN DE MÚSICA
+
+
+

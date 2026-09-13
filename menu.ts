@@ -1,6 +1,8 @@
 import { Auto } from "./auto.js";
 import { fiat, malibu, jeep } from "./app.js";
 import * as THREE from 'three';
+import { Cancion } from "./radio/radio-archivos/cancion.js";
+import { Radio } from "./radio/radio-archivos/radio.js";
 
 //SELECCIÓN DE AUTOS
 
@@ -80,5 +82,29 @@ s_camara_3.addEventListener('click', () => {
 
 //SELECCIÓN DE MÚSICA
 
+//Archivos música
 
+const teen = new Cancion('/radio/canciones/8TEEN - Ryan Librada.m4a', '/radio/img/8teen.jpg', '8TEEN', 'Ryan Librada');
+const let_me_oh = new Cancion('/radio/canciones/E dubble - Let Me Oh.m4a', '/radio/img/let_me_oh.jpg', 'Let Me Oh', 'E dubble');
+const bless_my_soul = new Cancion('/radio/canciones/JERHELL - Bless my soul.m4a', '/radio/img/bless.jpg', 'Bless my soul', 'JERHELL');
+const la_temp = new Cancion('/radio/canciones/Le Temp - Ryan Librada.m4a', '/radio/img/la_temp.jpg', 'La Temp', 'Ryan Librada');
+const silhouette = new Cancion('/radio/canciones/silhouette - ghosthands.m4a', '/radio/img/silhouette.jpg', 'silhouette', 'ghosthands');
+const where_d_you_go = new Cancion('/radio/canciones/Whered You Go - Ryan Librada.m4a', '/radio/img/where_you_go.jpg', 'Where You Go', 'Ryan Librada');
+const write_it_off = new Cancion('/radio/canciones/Write It Off  - Ryan Librada.m4a', '/radio/img/write_it_off.jpg', 'Write It Off', 'Ryan Librada');
 
+const canciones: Cancion[] = [teen, let_me_oh, bless_my_soul, la_temp, silhouette, where_d_you_go, write_it_off];
+const radio = new Radio(canciones);
+
+const anterior_cancion:HTMLButtonElement = document.querySelector('#anterior_cancion')!;
+const empezar_cancion: HTMLButtonElement = document.querySelector('#empezar_cancion')!;
+const pausar_cancion:HTMLButtonElement = document.querySelector('#pausar_cancion')!;
+const siguiente_cancion: HTMLBRElement = document.querySelector('#siguiente_cancion')!;
+const cancion_input: HTMLAudioElement = document.querySelector('#cancion_input')!;
+const img_cancion: HTMLImageElement = document.querySelector('#img_cancion')!;
+
+empezar_cancion.addEventListener('click', () => {
+    const cancion = radio.generarMusicaAleatorio();
+    cancion_input.src = cancion!.getUrl();
+    img_cancion.src = cancion!.getImg();
+    cancion_input.play();
+})

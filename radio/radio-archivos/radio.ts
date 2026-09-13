@@ -1,23 +1,24 @@
 import { Cancion } from "./cancion.js";
 
-class Radio {
+export class Radio {
   private canciones: Cancion[];
   private cancion_seleccionada: Cancion | undefined;
 
-  constructor() {
-    this.canciones = [];
+  constructor(canciones: Cancion[]) {
+    this.canciones = canciones;
   }
 
-  reproducirRadio(){
-    return this.canciones[this.generarNumeroAleatorio()];
-  }
 
   agregarCancion(cancion: Cancion) {
     this.canciones.push(cancion);
   }
 
-  generarNumeroAleatorio(){
+  generarMusicaAleatorio(){
     const numero_aleatorio = Math.floor(Math.random() * this.canciones.length);
-    return numero_aleatorio;
+    return this.cancion_seleccionada = this.canciones[numero_aleatorio];
+  }
+
+  getCancion(){
+    return this.cancion_seleccionada;
   }
 }

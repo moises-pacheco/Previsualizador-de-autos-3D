@@ -43,8 +43,8 @@ export const estado_camara = {
     camaraActiva: new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000),
 }
 
-
-estado_camara.camaraActiva.position.set(17.47,-1.09,10.06);
+//Cámara predeterminada
+estado_camara.camaraActiva.position.set(17.47,-1.09,12.06);
 estado_camara.camaraActiva.rotation.y = .9
 
 function cambiarCamara(nueva_camara: THREE.PerspectiveCamera){
@@ -60,12 +60,15 @@ const camera1: THREE.PerspectiveCamera = new THREE.PerspectiveCamera(60, window.
 const camera2: THREE.PerspectiveCamera = new THREE.PerspectiveCamera(60, window.innerWidth/ window.innerHeight, 0.1, 1000);
 const camera3: THREE.PerspectiveCamera = new THREE.PerspectiveCamera(60, window.innerWidth/ window.innerHeight, 0.1, 1000);
 
+//Cámaras que se pueden seleccionar en el menú
+//Primera cámara
 s_camara_1.addEventListener('click', () => {
     cambiarCamara(camera1);
-    camera1.position.set(17.47,-1.09,10.06);
+    camera1.position.set(17.47,-1.09,12.06);
     camera1.rotation.y = .9;
 
 })
+//Segunda cámara
 
 s_camara_2.addEventListener('click', () => {
     cambiarCamara(camera2);
@@ -74,13 +77,14 @@ s_camara_2.addEventListener('click', () => {
 
 })
 
+//Tercera cámara
+
 s_camara_3.addEventListener('click', () => {
     cambiarCamara(camera3);
     camera3.position.set(-8,-1.09,1);
     camera3.rotation.y = 4;
 })
 
-//SELECCIÓN DE MÚSICA
 
 //Archivos música
 
@@ -94,6 +98,8 @@ const write_it_off = new Cancion('/radio/canciones/Write It Off  - Ryan Librada.
 
 const canciones: Cancion[] = [teen, let_me_oh, bless_my_soul, la_temp, silhouette, where_d_you_go, write_it_off];
 const radio = new Radio(canciones);
+
+//Botones y parrafos para la radio
 
 const anterior_cancion:HTMLButtonElement = document.querySelector('#anterior_cancion')!;
 const empezar_cancion: HTMLButtonElement = document.querySelector('#empezar_cancion')!;
@@ -112,4 +118,23 @@ empezar_cancion.addEventListener('click', () => {
     nombre_artista.textContent = `${cancion?.getArtista()}`
 
     cancion_input.play();
+})
+
+
+
+//SELECCIÓN DE MÚSICA
+
+const encender: HTMLLIElement = document.querySelector('#radio_encender')!;
+const apagar: HTMLLIElement = document.querySelector('#radio_apagar')!;
+const radio_seccion: HTMLDivElement = document.querySelector('#radio')!;
+
+//Muestra la sección de la radio
+encender.addEventListener('click', () => {
+    radio_seccion.style.visibility = 'visible';
+    radio_seccion.style.opacity = '1';
+})
+//Desaparece la sección de la radio.
+apagar.addEventListener('click', () => {
+    radio_seccion.style.visibility = 'hidden';
+    radio_seccion.style.opacity = '0';
 })

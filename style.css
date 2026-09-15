@@ -10,11 +10,6 @@ ul{
     --fondo-letras-hover: rgba(40, 40, 40, 0.6);
 }
 
-.radio{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
 .menu {
     position: absolute;
@@ -72,13 +67,35 @@ ul{
 /* Radio */
 
 img{
-    width: 12em;
-    padding: .8em;
+    width: 6.8em;
+    margin: 1em;
 }
 
 .radio{
+    visibility: hidden;
+    opacity: 0;
     color: white;
     position: absolute;
     top: 70%;
     background-color: var(--fondo-letras);
+    padding: 0 4em 0 0;
+    width: 18em;
+}
+
+.radio-dentro{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nombre-cancion{
+    font-size: 1.4em;
+    width: 4em;
+}
+
+button{
+    color: white;
+    border: none;
+    background: none;
+    cursor: pointer;
 }

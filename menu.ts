@@ -111,13 +111,7 @@ const nombre_cancion: HTMLElement = document.querySelector('#nombre_cancion')!;
 const nombre_artista: HTMLElement = document.querySelector('#nombre_artista')!;
 
 empezar_cancion.addEventListener('click', () => {
-    const cancion = radio.generarMusicaAleatorio();
-    cancion_input.src = cancion!.getUrl();
-    img_cancion.src = cancion!.getImg();
-    nombre_cancion.textContent = `${cancion?.getNombreCancion()}`
-    nombre_artista.textContent = `${cancion?.getArtista()}`
 
-    cancion_input.play();
 })
 
 
@@ -132,6 +126,15 @@ const radio_seccion: HTMLDivElement = document.querySelector('#radio')!;
 encender.addEventListener('click', () => {
     radio_seccion.style.visibility = 'visible';
     radio_seccion.style.opacity = '1';
+
+//Inicia una canción de manera aleatoria:
+    const cancion = radio.generarMusicaAleatorio();
+    cancion_input.src = cancion!.getUrl();
+    img_cancion.src = cancion!.getImg();
+    nombre_cancion.textContent = `${cancion?.getNombreCancion()}`
+    nombre_artista.textContent = `${cancion?.getArtista()}`
+    cancion_input.play();
+
 })
 //Desaparece la sección de la radio.
 apagar.addEventListener('click', () => {

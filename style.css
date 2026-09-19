@@ -68,7 +68,7 @@ ul{
 
 img{
     width: 5.6em;
-    margin: 1em;
+    margin: .8em;
 }
 
 .radio{
@@ -79,12 +79,12 @@ img{
     top: 70%;
     background-color: var(--fondo-letras);
     padding: 0 4em 0 0;
-    width: 18em;
+    width: 14em;
 }
 
 .radio-dentro{
     display: flex;
-    justify-content: center;
+    justify-content: first baseline;
     align-items: center;
 }
 

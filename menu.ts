@@ -97,24 +97,19 @@ const where_d_you_go = new Cancion('/radio/canciones/Whered You Go - Ryan Librad
 const write_it_off = new Cancion('/radio/canciones/Write It Off  - Ryan Librada.m4a', '/radio/img/write_it_off.jpg', 'Write It Off', 'Ryan Librada');
 
 const canciones: Cancion[] = [teen, let_me_oh, bless_my_soul, la_temp, silhouette, where_d_you_go, write_it_off];
-const radio = new Radio(canciones);
 
 //Botones y parrafos para la radio
 
-const anterior_cancion:HTMLButtonElement = document.querySelector('#anterior_cancion')!;
-const empezar_cancion: HTMLButtonElement = document.querySelector('#empezar_cancion')!;
-const pausar_cancion:HTMLButtonElement = document.querySelector('#pausar_cancion')!;
-const siguiente_cancion: HTMLBRElement = document.querySelector('#siguiente_cancion')!;
+const btn_anterior_cancion:HTMLButtonElement = document.querySelector('#anterior_cancion')!;
+const btn_empezar_cancion: HTMLButtonElement = document.querySelector('#empezar_cancion')!;
+const btn_siguiente_cancion: HTMLBRElement = document.querySelector('#siguiente_cancion')!;
 const cancion_input: HTMLAudioElement = document.querySelector('#cancion_input')!;
 const img_cancion: HTMLImageElement = document.querySelector('#img_cancion')!;
 const nombre_cancion: HTMLElement = document.querySelector('#nombre_cancion')!;
 const nombre_artista: HTMLElement = document.querySelector('#nombre_artista')!;
 
-empezar_cancion.addEventListener('click', () => {
-
-})
-
-
+//Crear la radio y agregándole los inputs que se reproducirán en la radio
+const radio = new Radio(canciones,cancion_input,img_cancion,nombre_cancion,nombre_artista,btn_empezar_cancion);
 
 //SELECCIÓN DE MÚSICA
 
@@ -122,22 +117,24 @@ const encender: HTMLLIElement = document.querySelector('#radio_encender')!;
 const apagar: HTMLLIElement = document.querySelector('#radio_apagar')!;
 const radio_seccion: HTMLDivElement = document.querySelector('#radio')!;
 
+
+//MENÚ RADIO
 //Muestra la sección de la radio
 encender.addEventListener('click', () => {
     radio_seccion.style.visibility = 'visible';
     radio_seccion.style.opacity = '1';
 
 //Inicia una canción de manera aleatoria:
-    const cancion = radio.generarMusicaAleatorio();
-    cancion_input.src = cancion!.getUrl();
-    img_cancion.src = cancion!.getImg();
-    nombre_cancion.textContent = `${cancion?.getNombreCancion()}`
-    nombre_artista.textContent = `${cancion?.getArtista()}`
-    cancion_input.play();
-
+    radio.empezarCancion();
 })
 //Desaparece la sección de la radio.
 apagar.addEventListener('click', () => {
     radio_seccion.style.visibility = 'hidden';
     radio_seccion.style.opacity = '0';
+    radio.pausarCancion();
+})
+
+//BOTONES DE LA RADIO 
+btn_empezar_cancion.addEventListener('click', () => {
+    radio.reproducirCancion();
 })

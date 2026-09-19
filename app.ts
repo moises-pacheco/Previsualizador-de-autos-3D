@@ -101,7 +101,7 @@ function animate(){
     jeep.crear_animacion();
     fiat.crear_animacion();
     
-    console.log(`X: ${estado_camara.camaraActiva.position.x}, Y: ${estado_camara.camaraActiva.position.y}, Z: ${estado_camara.camaraActiva.position.z}`)
+    // console.log(`X: ${estado_camara.camaraActiva.position.x}, Y: ${estado_camara.camaraActiva.position.y}, Z: ${estado_camara.camaraActiva.position.z}`)
 
     poste_de_luz.crear_animacion();
     montana.crear_animacion();

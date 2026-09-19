@@ -87,7 +87,6 @@ s_camara_3.addEventListener('click', () => {
 
 
 //Archivos música
-
 const teen = new Cancion('/radio/canciones/8TEEN - Ryan Librada.m4a', '/radio/img/8teen.jpg', '8TEEN', 'Ryan Librada');
 const let_me_oh = new Cancion('/radio/canciones/E dubble - Let Me Oh.m4a', '/radio/img/let_me_oh.jpg', 'Let Me Oh', 'E dubble');
 const bless_my_soul = new Cancion('/radio/canciones/JERHELL - Bless my soul.m4a', '/radio/img/bless.jpg', 'Bless my soul', 'JERHELL');
@@ -134,7 +133,18 @@ apagar.addEventListener('click', () => {
     radio.pausarCancion();
 })
 
+
+
+
 //BOTONES DE LA RADIO 
 btn_empezar_cancion.addEventListener('click', () => {
     radio.reproducirCancion();
+})
+
+btn_siguiente_cancion.addEventListener('click', () => {
+    radio.siguienteCancion();
+})
+
+btn_anterior_cancion.addEventListener('click', () => {
+    radio.anteriorCancion();
 })

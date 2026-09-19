@@ -21,7 +21,7 @@ export class Auto {
 
     private angulo: number;
 
-    constructor(scene: THREE.Scene, auto_ruta: string, rueda_izquierda_ruta:string, rueda_derecha_ruta:string, rueda_trasera_posicion: number, nombre_auto: string) {
+    constructor(scene: THREE.Scene, auto_ruta: string, rueda_izquierda_ruta: string, rueda_derecha_ruta: string, rueda_trasera_posicion: number, nombre_auto: string) {
         this.angulo = 0;
         this.scene = scene;
         this.loader = new GLTFLoader();
@@ -29,19 +29,19 @@ export class Auto {
         this.scene.add(this.auto);
         this.rueda_trasera_posicion = rueda_trasera_posicion;
         this.nombre_auto = nombre_auto;
-        
+
         this.auto_ruta = auto_ruta;
 
 
         this.r_i_d = this.crear_rueda(rueda_izquierda_ruta, false);
-        this.r_d_d = this.crear_rueda(rueda_derecha_ruta,false);
-        this.r_i_a = this.crear_rueda(rueda_izquierda_ruta,true);
-        this.r_d_a = this.crear_rueda(rueda_derecha_ruta,true);
-        
+        this.r_d_d = this.crear_rueda(rueda_derecha_ruta, false);
+        this.r_i_a = this.crear_rueda(rueda_izquierda_ruta, true);
+        this.r_d_a = this.crear_rueda(rueda_derecha_ruta, true);
+
     }
 
 
-    crear_animacion(){
+    crear_animacion() {
         const rueda_rapidez = .94;
         this.r_i_d.rotation.z += rueda_rapidez;
         this.r_d_d.rotation.z += rueda_rapidez;
@@ -49,7 +49,7 @@ export class Auto {
         this.r_d_a.rotation.z += rueda_rapidez;
 
         this.auto.position.y = -4 + (Math.sin(this.angulo) * .06);
-        this.angulo+= 0.082;
+        this.angulo += 0.082;
     }
 
     posicionar() {
@@ -69,7 +69,7 @@ export class Auto {
     crear_rueda(ruta: string, rueda_atras: boolean): THREE.Group {
         const pivote = new THREE.Group();
         this.loader.load(ruta, (gltf) => {
-            if(rueda_atras){
+            if (rueda_atras) {
                 gltf.scene.position.x = this.rueda_trasera_posicion;
             }
             const dimensiones_rueda = new THREE.Box3().setFromObject(gltf.scene);
@@ -80,17 +80,17 @@ export class Auto {
             pivote.add(gltf.scene);
             this.auto.add(pivote);
         })
-        return pivote; 
+        return pivote;
     }
 
-    eliminarAuto(){
+    eliminarAuto() {
         this.auto.traverse((obj) => {
-            if(obj instanceof THREE.Mesh){
+            if (obj instanceof THREE.Mesh) {
                 obj.geometry.dispose();
 
-                if(Array.isArray(obj.material)){
+                if (Array.isArray(obj.material)) {
                     obj.material.forEach((m) => m.dispose());
-                }else{
+                } else {
                     obj.material.dispose();
                 }
             }
@@ -99,15 +99,29 @@ export class Auto {
         this.auto.removeFromParent();
     }
 
-    getNombreAuto(){
+    cambiarColor(nombre_material: string, color: string) {
+        this.auto.traverse((auto) => {
+            if(auto instanceof THREE.Mesh){
+                const material = auto.material;
+                if(material.name == nombre_material){
+                    console.log(material);
+                    auto.material.color.set(color);
+                }
+            }
+        })
+    }
+
+    getNombreAuto() {
         return this.nombre_auto;
     }
 
-    getAuto(){
+    getAuto() {
         return this.auto;
     }
 
-    agregarAuto(){
+    agregarAuto() {
         this.scene.add(this.auto);
     }
+
+
 }

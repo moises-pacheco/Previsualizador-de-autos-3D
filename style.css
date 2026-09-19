@@ -99,3 +99,52 @@ button{
     background: none;
     cursor: pointer;
 }
+
+.color{
+    width: 1em;
+    height: 1em;
+    border-radius: 100%;
+    border: 1px solid white;
+    margin: .2em;
+
+}
+
+.submenu-opciones{
+    display: flex;
+}
+
+/* Malibu */
+.malibu_color_1{
+    background-color: rgb(73, 27, 167);
+}
+.malibu_color_2{
+    background-color: rgb(14, 32, 162);
+}
+.malibu_color_3{
+    background-color: rgb(181, 155, 84);
+}
+/* Jeep */
+
+.jeep_color_1{
+    background-color: rgb(0, 145, 41);
+}
+.jeep_color_2{
+    background-color: rgb(102, 44, 11);
+}
+.jeep_color_3{
+    background-color: rgb(120, 120, 120);
+}
+
+/* Fiat */
+
+.fiat_color_1{
+    background-color: rgb(217, 40, 40);
+}
+
+.fiat_color_2{
+    background-color: rgb(231, 127, 0);
+}
+.fiat_color_3{
+    background-color: rgb(125, 185, 231);
+}
+

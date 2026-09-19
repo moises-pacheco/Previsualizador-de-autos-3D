@@ -10,8 +10,8 @@ const v_malibu: HTMLLIElement = document.querySelector('#v_malibu')!;
 const v_jeep: HTMLLIElement = document.querySelector('#v_jeep')!;
 const v_fiat: HTMLLIElement = document.querySelector('#v_fiat')!;
 
-function getAutos(): Auto[]{
-    return [fiat,malibu,jeep];
+function getAutos(): Auto[] {
+    return [fiat, malibu, jeep];
 }
 
 v_malibu.addEventListener('click', () => {
@@ -27,27 +27,27 @@ v_fiat.addEventListener('click', () => {
 
 })
 
-function seleccionarAuto(nombre_auto:string){
+function seleccionarAuto(nombre_auto: string) {
     getAutos().forEach(auto => {
-        if(nombre_auto !== auto.getNombreAuto()){
+        if (nombre_auto !== auto.getNombreAuto()) {
             auto.eliminarAuto();
-        }else{
+        } else {
             auto.agregarAuto();
         }
     })
 }
 
 //SELECCIÓN DE CÁMARAS
-
+// Gestor
 export const estado_camara = {
     camaraActiva: new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000),
 }
 
 //Cámara predeterminada
-estado_camara.camaraActiva.position.set(17.47,-1.09,12.06);
+estado_camara.camaraActiva.position.set(17.47, -1.09, 12.06);
 estado_camara.camaraActiva.rotation.y = .9
 
-function cambiarCamara(nueva_camara: THREE.PerspectiveCamera){
+function cambiarCamara(nueva_camara: THREE.PerspectiveCamera) {
     estado_camara.camaraActiva = nueva_camara;
 }
 
@@ -55,16 +55,16 @@ const s_camara_1: HTMLLIElement = document.querySelector('#camara_1')!;
 const s_camara_2: HTMLLIElement = document.querySelector('#camara_2')!;
 const s_camara_3: HTMLLIElement = document.querySelector('#camara_3')!;
 
-const camera1: THREE.PerspectiveCamera = new THREE.PerspectiveCamera(60, window.innerWidth/ window.innerHeight, 0.1, 1000);
+const camera1: THREE.PerspectiveCamera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
 
-const camera2: THREE.PerspectiveCamera = new THREE.PerspectiveCamera(60, window.innerWidth/ window.innerHeight, 0.1, 1000);
-const camera3: THREE.PerspectiveCamera = new THREE.PerspectiveCamera(60, window.innerWidth/ window.innerHeight, 0.1, 1000);
+const camera2: THREE.PerspectiveCamera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
+const camera3: THREE.PerspectiveCamera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
 
 //Cámaras que se pueden seleccionar en el menú
 //Primera cámara
 s_camara_1.addEventListener('click', () => {
     cambiarCamara(camera1);
-    camera1.position.set(17.47,-1.09,12.06);
+    camera1.position.set(17.47, -1.09, 12.06);
     camera1.rotation.y = .9;
 
 })
@@ -81,7 +81,7 @@ s_camara_2.addEventListener('click', () => {
 
 s_camara_3.addEventListener('click', () => {
     cambiarCamara(camera3);
-    camera3.position.set(-8,-1.09,1);
+    camera3.position.set(-8, -1.09, 1);
     camera3.rotation.y = 4;
 })
 
@@ -99,7 +99,7 @@ const canciones: Cancion[] = [teen, let_me_oh, bless_my_soul, la_temp, silhouett
 
 //Botones y parrafos para la radio
 
-const btn_anterior_cancion:HTMLButtonElement = document.querySelector('#anterior_cancion')!;
+const btn_anterior_cancion: HTMLButtonElement = document.querySelector('#anterior_cancion')!;
 const btn_empezar_cancion: HTMLButtonElement = document.querySelector('#empezar_cancion')!;
 const btn_siguiente_cancion: HTMLBRElement = document.querySelector('#siguiente_cancion')!;
 const cancion_input: HTMLAudioElement = document.querySelector('#cancion_input')!;
@@ -108,7 +108,7 @@ const nombre_cancion: HTMLElement = document.querySelector('#nombre_cancion')!;
 const nombre_artista: HTMLElement = document.querySelector('#nombre_artista')!;
 
 //Crear la radio y agregándole los inputs que se reproducirán en la radio
-const radio = new Radio(canciones,cancion_input,img_cancion,nombre_cancion,nombre_artista,btn_empezar_cancion);
+const radio = new Radio(canciones, cancion_input, img_cancion, nombre_cancion, nombre_artista, btn_empezar_cancion);
 
 //SELECCIÓN DE MÚSICA
 
@@ -123,7 +123,7 @@ encender.addEventListener('click', () => {
     radio_seccion.style.visibility = 'visible';
     radio_seccion.style.opacity = '1';
 
-//Inicia una canción de manera aleatoria:
+    //Inicia una canción de manera aleatoria:
     radio.empezarCancion();
 })
 //Desaparece la sección de la radio.
@@ -147,4 +147,72 @@ btn_siguiente_cancion.addEventListener('click', () => {
 
 btn_anterior_cancion.addEventListener('click', () => {
     radio.anteriorCancion();
+})
+
+//Selector de colores para autos.
+const malibu_color_1: HTMLElement = document.querySelector('#malibu_color_1')!;
+const malibu_color_2: HTMLElement = document.querySelector('#malibu_color_2')!;
+const malibu_color_3: HTMLElement = document.querySelector('#malibu_color_3')!;
+
+const jeep_color_1: HTMLElement = document.querySelector('#jeep_color_1')!;
+const jeep_color_2: HTMLElement = document.querySelector('#jeep_color_2')!;
+const jeep_color_3: HTMLElement = document.querySelector('#jeep_color_3')!;
+
+const fiat_color_1: HTMLElement = document.querySelector('#fiat_color_1')!;
+const fiat_color_2: HTMLElement = document.querySelector('#fiat_color_2')!;
+const fiat_color_3: HTMLElement = document.querySelector('#fiat_color_3')!;
+
+//Malibu
+
+malibu_color_1!.addEventListener('click', () => {
+    const malibu = getAutos()[1];
+    malibu?.cambiarColor('color.auto', window.getComputedStyle(malibu_color_1).backgroundColor);
+});
+
+malibu_color_2!.addEventListener('click', () => {
+    const malibu = getAutos()[1];
+    malibu?.cambiarColor('color.auto', window.getComputedStyle(malibu_color_2).backgroundColor);
+});
+
+malibu_color_3!.addEventListener('click', () => {
+    const malibu = getAutos()[1];
+    malibu?.cambiarColor('color.auto', window.getComputedStyle(malibu_color_3).backgroundColor)
+})
+
+//Jeep
+
+jeep_color_1!.addEventListener('click', () => {
+    const jeep = getAutos()[2];
+    jeep?.cambiarColor('auto_color.002', window.getComputedStyle(jeep_color_1).backgroundColor);
+})
+
+jeep_color_2!.addEventListener('click', () => {
+    const jeep = getAutos()[2];
+    jeep?.cambiarColor('auto_color.002', window.getComputedStyle(jeep_color_2).backgroundColor);
+})
+
+jeep_color_3!.addEventListener('click', () => {
+    const jeep = getAutos()[2];
+    jeep?.cambiarColor('auto_color.002', window.getComputedStyle(jeep_color_3).backgroundColor)
+})
+
+//Fiat
+
+
+fiat_color_1!.addEventListener('click', () =>{
+    const fiat = getAutos()[0];
+    fiat?.cambiarColor('color.auto.001', window.getComputedStyle(fiat_color_1).backgroundColor);
+})
+
+fiat_color_2!.addEventListener('click', () => {
+    const fiat = getAutos()[0];
+    fiat?.cambiarColor('color.auto.001', window.getComputedStyle(fiat_color_2).backgroundColor);
+
+})
+
+fiat_color_3!.addEventListener('click', () => {
+    const fiat = getAutos()[0];
+    fiat?.cambiarColor('color.auto.001', window.getComputedStyle(fiat_color_3).backgroundColor);
+
+
 })

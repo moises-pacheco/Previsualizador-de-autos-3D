@@ -31,6 +31,7 @@ export class Radio {
     this.nombre_cancion.textContent = this.cancion_seleccionada!.getNombreCancion();
     this.artista.textContent = this.cancion_seleccionada!.getArtista();
     this.input_cancion.play();
+    this.input_cancion.volume = 0.04;
     this.reproduciendo = true;
     this.btn_empezar_cancion.textContent = "⏸";
     // console.log("Radio encendida");

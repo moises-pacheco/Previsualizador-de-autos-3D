@@ -3,6 +3,7 @@ import { fiat, malibu, jeep } from "./app.js";
 import * as THREE from 'three';
 import { Cancion } from "./radio/radio-archivos/cancion.js";
 import { Radio } from "./radio/radio-archivos/radio.js";
+import { Reloj } from "./reloj/reloj.js";
 
 //SELECCIÓN DE AUTOS
 
@@ -177,24 +178,24 @@ malibu_color_2!.addEventListener('click', () => {
 malibu_color_3!.addEventListener('click', () => {
     const malibu = getAutos()[1];
     malibu?.cambiarColor('color.auto', window.getComputedStyle(malibu_color_3).backgroundColor)
-})
+});
 
 //Jeep
 
 jeep_color_1!.addEventListener('click', () => {
     const jeep = getAutos()[2];
     jeep?.cambiarColor('auto_color.002', window.getComputedStyle(jeep_color_1).backgroundColor);
-})
+});
 
 jeep_color_2!.addEventListener('click', () => {
     const jeep = getAutos()[2];
     jeep?.cambiarColor('auto_color.002', window.getComputedStyle(jeep_color_2).backgroundColor);
-})
+});
 
 jeep_color_3!.addEventListener('click', () => {
     const jeep = getAutos()[2];
     jeep?.cambiarColor('auto_color.002', window.getComputedStyle(jeep_color_3).backgroundColor)
-})
+});
 
 //Fiat
 
@@ -202,17 +203,25 @@ jeep_color_3!.addEventListener('click', () => {
 fiat_color_1!.addEventListener('click', () =>{
     const fiat = getAutos()[0];
     fiat?.cambiarColor('color.auto.001', window.getComputedStyle(fiat_color_1).backgroundColor);
-})
+});
 
 fiat_color_2!.addEventListener('click', () => {
     const fiat = getAutos()[0];
     fiat?.cambiarColor('color.auto.001', window.getComputedStyle(fiat_color_2).backgroundColor);
 
-})
+});
 
 fiat_color_3!.addEventListener('click', () => {
     const fiat = getAutos()[0];
     fiat?.cambiarColor('color.auto.001', window.getComputedStyle(fiat_color_3).backgroundColor);
+});
 
 
-})
+
+/* RELOJ */
+
+const hora: HTMLElement = document.querySelector("#hora")!;
+const dia: HTMLElement = document.querySelector("#dia")!;
+
+const reloj = new Reloj(hora,dia);
+reloj.obtenerInterfaz();

@@ -150,3 +150,27 @@ button{
     background-color: rgb(125, 185, 231);
 }
 
+
+/* Reloj / Día */
+
+
+.reloj{
+    position: absolute;
+    left: 90%;
+    top: 52px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+
+.hora{
+    font-size: 2em;
+}
+
+.dia{
+    font-size: 1em;
+}

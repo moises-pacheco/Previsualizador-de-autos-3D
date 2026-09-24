@@ -156,7 +156,7 @@ button{
 
 .reloj{
     position: absolute;
-    left: 90%;
+    left: 88%;
     top: 52px;
     color: white;
     display: flex;
@@ -164,6 +164,7 @@ button{
     align-items: center;
     justify-content: center;
     text-align: center;
+    background-color: var(--fondo-letras);
 }
 
 
@@ -174,3 +175,10 @@ button{
 .dia{
     font-size: 1em;
 }
+
+.hora-sistema{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+

@@ -19,7 +19,6 @@ export class Reloj {
   obtenerInterfaz() {
     setInterval(() => {
       this.dia_info = new Date();
-      console.log("Hola");
       const hora = this.dia_info.getHours().toString() + ":" + this.dia_info.getMinutes().toString();
       this.hora.textContent = hora;
       this.dia.textContent = this.obtenerDia();

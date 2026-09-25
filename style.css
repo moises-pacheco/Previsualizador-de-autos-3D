@@ -1,50 +1,80 @@
-*{
+* {
     margin: 0;
 }
 
-ul{
+ul {
     list-style: none;
 }
-:root{
+
+:root {
     --fondo-letras: rgba(25, 25, 25, 0.6);
     --fondo-letras-hover: rgba(40, 40, 40, 0.6);
+    --boder-fondo: .4em;
+}
+
+/* Fuentes de letras */
+
+@font-face {
+    font-family: "Digital-Clock";
+    src: url(./font/dseg7-classic-latin-300-normal.ttf);
+}
+
+@font-face {
+    font-family: "TitilliumWeb";
+    src: url(./font/TitilliumWeb-Regular.ttf);
 }
 
 
+#canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 1;
+    background: radial-gradient(ellipse at center, rgba(13, 13, 13, 0.0) 75%, rgba(0, 0, 0,0.4) 100%);
+}
+
 .menu {
+    font-family: "TitilliumWeb";
     position: absolute;
     top: 52px;
     left: 52px;
     color: white;
+    z-index: 10;
 }
 
 
-.menu-opcion{
+.menu-opcion {
     display: flex;
     justify-content: left;
+    align-items: center;
     position: relative;
     background-color: var(--fondo-letras);
     margin: .4em 0 .4em;
-    padding: .4em 8em .4em .4em;
-    border-radius: .2em;
+    padding: 0em 8em 0em .4em;
     cursor: pointer;
     transition: .4s ease-in;
+    border-radius: var(--boder-fondo);
+    font-size: .8em;
+
 
 }
 
-.menu-opcion:hover{
+.menu-opcion:hover {
     background-color: var(--fondo-letras-hover);
 
 }
 
-.menu-opcion:hover > .submenu{
+.menu-opcion:hover>.submenu {
     visibility: visible;
     opacity: 1;
-    transform: translateX(10em);
+    transform: translateX(12.8em);
 
 }
 
-.submenu{
+.submenu {
     position: absolute;
     visibility: hidden;
     opacity: 0;
@@ -56,22 +86,27 @@ ul{
     padding: .4em 8em .4em .4em;
     transition: .4s ease-in-out;
     margin: .4em 0 .4em;
+    border-radius: var(--boder-fondo);
 
 }
 
-.submenu li:hover{
+.submenu li:hover {
     background-color: var(--fondo-letras-hover);
     border-radius: .2em;
 }
 
+.icono {
+    width: 1.8em;
+}
+
 /* Radio */
 
-img{
+img {
     width: 5.6em;
     margin: .8em;
 }
 
-.radio{
+.radio {
     visibility: hidden;
     opacity: 0;
     color: white;
@@ -80,9 +115,10 @@ img{
     background-color: var(--fondo-letras);
     padding: 0 4em 0 0;
     width: 14em;
+    z-index: 10;
 }
 
-.radio-dentro{
+.radio-dentro {
     display: flex;
     justify-content: first baseline;
     align-items: center;
@@ -90,19 +126,19 @@ img{
 
 
 
-.nombre-cancion{
+.nombre-cancion {
     font-size: 1.4em;
     width: 4em;
 }
 
-button{
+button {
     color: white;
     border: none;
     background: none;
     cursor: pointer;
 }
 
-.color{
+.color {
     width: 1em;
     height: 1em;
     border-radius: 100%;
@@ -111,42 +147,48 @@ button{
 
 }
 
-.submenu-opciones{
+.submenu-opciones {
     display: flex;
 }
 
 /* Malibu */
-.malibu_color_1{
+.malibu_color_1 {
     background-color: #490099FF;
 }
-.malibu_color_2{
+
+.malibu_color_2 {
     background-color: rgb(104, 0, 0);
 }
-.malibu_color_3{
+
+.malibu_color_3 {
     background-color: rgb(181, 155, 84);
 }
+
 /* Jeep */
 
-.jeep_color_1{
+.jeep_color_1 {
     background-color: #147100FF;
 }
-.jeep_color_2{
+
+.jeep_color_2 {
     background-color: rgb(0, 0, 0);
 }
-.jeep_color_3{
+
+.jeep_color_3 {
     background-color: rgb(255, 255, 255);
 }
 
 /* Fiat */
 
-.fiat_color_1{
+.fiat_color_1 {
     background-color: #BC0900FF;
 }
 
-.fiat_color_2{
+.fiat_color_2 {
     background-color: rgb(231, 127, 0);
 }
-.fiat_color_3{
+
+.fiat_color_3 {
     background-color: rgb(125, 185, 231);
 }
 
@@ -154,31 +196,33 @@ button{
 /* Reloj / Día */
 
 
-.reloj{
+.reloj {
     position: absolute;
-    left: 88%;
-    top: 52px;
+    left: 73%;
+    top: 280px;
     color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
-    background-color: var(--fondo-letras);
+    padding: .8em 1.4em;
+    z-index: 10;
 }
 
 
-.hora{
-    font-size: 2em;
+.hora {
+    font-size: 3.8em;
+    font-family: "Digital-Clock";
 }
 
-.dia{
-    font-size: 1em;
+.dia {
+    font-family: "TitilliumWeb";
+    font-size: 1.2em;
 }
 
-.hora-sistema{
+.hora-sistema {
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
 }
-

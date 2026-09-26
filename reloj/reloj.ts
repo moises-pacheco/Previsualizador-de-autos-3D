@@ -19,7 +19,7 @@ export class Reloj {
   obtenerInterfaz() {
     setInterval(() => {
       this.dia_info = new Date();
-      const hora = this.dia_info.getHours().toString() + ":" + this.dia_info.getMinutes().toString();
+      const hora = String(this.dia_info.getHours()).padStart(2, '0') + ":" + String(this.dia_info.getMinutes()).padStart(2, '0');
       this.hora.textContent = hora;
       this.dia.textContent = this.obtenerDia();
     },1000)
@@ -30,25 +30,25 @@ export class Reloj {
     let dia = "";
     switch (this.dia_info.getDay().toString()) {
       case "1":
-        dia = "Lunes";
+        dia = "lun.";
         break;
       case "2":
-        dia = "Martes";
+        dia = "mar.";
         break;
       case "3":
-        dia = "Miércoles";
+        dia = "mie.";
         break;
       case "4":
-        dia = "Jueves";
+        dia = "jue.";
         break;
       case "5":
-        dia = "Viernes";
+        dia = "vie.";
         break;
       case "6":
-        dia = "Sábado";
+        dia = "sáb.";
         break;
       case "7":
-        dia = "Domingo";
+        dia = "dom.";
         break;
     }
 

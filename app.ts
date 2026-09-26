@@ -9,9 +9,19 @@ import { Carretera } from './carretera.js';
 import { I_Auto } from './iluminacion/iluminacion_auto.js';
 import './menu.js';
 import { estado_camara } from './menu.js';
+import { Animacion } from './animacion/inicio-animacion.js';
 
 
+//Animación
+const entrada_div:HTMLElement = document.querySelector("#intro-silueta")!;
+const entrada_animacion = new Animacion(entrada_div);
 
+const menu: HTMLElement = document.querySelector('#menu')!;
+const reloj: HTMLElement = document.querySelector('#reloj')!;
+
+entrada_animacion.agregarElemento(menu);
+entrada_animacion.agregarElemento(reloj);
+entrada_animacion.iniciarAnimacion();
 
 
 const scene = new THREE.Scene();

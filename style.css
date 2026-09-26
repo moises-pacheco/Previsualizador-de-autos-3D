@@ -28,6 +28,23 @@ ul {
 }
 
 
+.intro-silueta{
+    position: fixed;
+    background: transparent;
+    box-shadow: 0 0 0 1000px black;
+    top: 50%;
+    left: 50%;
+    width: 0px;
+    height: 0px;
+    transform: translate(-50%, -50%);
+    transition:  3s ease ;
+}
+
+.intro-silueta-expandida{
+    width: 2000px;
+    height: 650px;
+}
+
 #canvas {
     position: absolute;
     top: 0;
@@ -46,7 +63,13 @@ ul {
     left: 52px;
     color: white;
     z-index: 10;
+    transition: 3s ease-in-out;
+    opacity: 0;
+    visibility: hidden;
 }
+
+
+
 
 
 .menu-opcion {
@@ -230,8 +253,13 @@ button {
     text-align: center;
     padding: 0em 1.8em;
     z-index: 10;
+    opacity: 0;
+    visibility: hidden;
+    transition: 3s ease-in-out;
     /* background-color: var(--fondo-letras); */
 }
+
+
 
 
 .hora {
@@ -251,4 +279,9 @@ button {
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
+}
+
+.ventana-encendida{
+    visibility:visible;
+    opacity: 1;
 }

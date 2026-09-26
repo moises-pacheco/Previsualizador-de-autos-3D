@@ -1,5 +1,7 @@
 * {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 ul {
@@ -10,6 +12,7 @@ ul {
     --fondo-letras: rgba(25, 25, 25, 0.6);
     --fondo-letras-hover: rgba(40, 40, 40, 0.6);
     --boder-fondo: .4em;
+    --sombra-letras: drop-shadow(0 .08em 0 black);
 }
 
 /* Fuentes de letras */
@@ -70,29 +73,38 @@ ul {
 .menu-opcion:hover>.submenu {
     visibility: visible;
     opacity: 1;
-    transform: translateX(12.8em);
+    transform: translateX(15.6em);
+    pointer-events: all;
 
 }
 
 .submenu {
+    pointer-events: none;
     position: absolute;
     visibility: hidden;
     opacity: 0;
 }
 
+
 .submenu li {
-    margin: .4em;
     background-color: var(--fondo-letras);
-    padding: .4em 8em .4em .4em;
+    padding: .8em 8em .8em .4em;
     transition: .4s ease-in-out;
     margin: .4em 0 .4em;
+    padding-left: .6em ;
     border-radius: var(--boder-fondo);
+    width: 16em;
 
 }
 
 .submenu li:hover {
     background-color: var(--fondo-letras-hover);
     border-radius: .2em;
+}
+
+.submenu-opciones {
+    display: flex;
+    border-radius: var(--boder-fondo);
 }
 
 .icono {
@@ -106,7 +118,12 @@ img {
     margin: .8em;
 }
 
+/* .img-musica{
+    border: 1px solid black;
+} */
+
 .radio {
+    font-family: 'TitilliumWeb';
     visibility: hidden;
     opacity: 0;
     color: white;
@@ -114,8 +131,9 @@ img {
     top: 70%;
     background-color: var(--fondo-letras);
     padding: 0 4em 0 0;
-    width: 14em;
+    width: 18em;
     z-index: 10;
+    filter: drop-shadow(0 .4em rgba(0,0,0,.2));
 }
 
 .radio-dentro {
@@ -127,8 +145,14 @@ img {
 
 
 .nombre-cancion {
-    font-size: 1.4em;
-    width: 4em;
+    color: rgb(255, 191, 0);
+    font-size: 1.2em;
+    width: 8em;
+}
+
+.nombre-artista{
+    font-size: .8em;
+    opacity: .5;
 }
 
 button {
@@ -147,9 +171,7 @@ button {
 
 }
 
-.submenu-opciones {
-    display: flex;
-}
+
 
 /* Malibu */
 .malibu_color_1 {
@@ -206,19 +228,23 @@ button {
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: .8em 1.4em;
+    padding: 0em 1.8em;
     z-index: 10;
+    /* background-color: var(--fondo-letras); */
 }
 
 
 .hora {
-    font-size: 3.8em;
     font-family: "Digital-Clock";
+    font-size: 3.8em;
+    margin-top: .4em;
+    filter: var(--sombra-letras);
 }
 
 .dia {
     font-family: "TitilliumWeb";
     font-size: 1.2em;
+    margin: .4em;
 }
 
 .hora-sistema {

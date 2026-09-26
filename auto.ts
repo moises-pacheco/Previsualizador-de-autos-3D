@@ -42,7 +42,7 @@ export class Auto {
 
 
     crear_animacion() {
-        const rueda_rapidez = .94;
+        const rueda_rapidez = -.94;
         this.r_i_d.rotation.z += rueda_rapidez;
         this.r_d_d.rotation.z += rueda_rapidez;
         this.r_i_a.rotation.z += rueda_rapidez;

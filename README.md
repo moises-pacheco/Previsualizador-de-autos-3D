@@ -2,6 +2,8 @@
 
 Un previsualizador 3D interactivo que permite personalizar diferentes tipos de autos y explorarlos desde múltiples ángulos y puntos de vista. Además, cuenta con una función de radio integrada que permite escuchar música mientras interactúas con la página.
 
+Todos los modelos 3D fueron creados en Blender e importados al proyecto.
+
 # Imágenes del proyecto: 
 
 

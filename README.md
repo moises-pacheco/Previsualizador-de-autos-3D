@@ -9,8 +9,6 @@ Un previsualizador 3D interactivo que permite personalizar diferentes tipos de a
 ---
 ![image alt](./img-readme/6.png)
 ---
-![image alt](./img-readme/6.png)
----
 ![image alt](./img-readme/1.png)
 ---
 ![image alt](./img-readme/4.png)
